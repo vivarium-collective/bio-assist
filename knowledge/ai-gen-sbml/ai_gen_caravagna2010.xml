@@ -1,0 +1,186 @@
+
+Copy code
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model id="Tumor_Immune_Interaction" name="Tumor-Immune Interaction Model by Caravagna et al.">
+    <listOfCompartments>
+      <compartment id="cytosol" size="1" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="Tumor_Cells" compartment="cytosol" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="Effector_Cells" compartment="cytosol" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="Interleukin_2" compartment="cytosol" initialConcentration="1" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="a" value="1" constant="true"/>
+      <parameter id="b" value="1E-9" constant="true"/>
+      <parameter id="g1" value="20000000" constant="true"/>
+      <parameter id="g2" value="100000" constant="true"/>
+      <parameter id="g3" value="1000" constant="true"/>
+      <parameter id="mu2" value="0.03" constant="true"/>
+      <parameter id="mu3" value="10" constant="true"/>
+      <parameter id="p1" value="0.1245" constant="true"/>
+      <parameter id="p2" value="5" constant="true"/>
+      <parameter id="r" value="0.18" constant="true"/>
+      <parameter id="V" value="3.2" constant="true"/>
+      <parameter id="s1" value="0" constant="true"/>
+      <parameter id="s2" value="0" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="Tumor_Growth" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Tumor_Cells"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> r </ci>
+              <ci> Tumor_Cells </ci>
+              <apply>
+                <minus/>
+                <cn> 1 </cn>
+                <apply>
+                  <times/>
+                  <apply>
+                    <divide/>
+                    <ci> b </ci>
+                    <ci> V </ci>
+                  </apply>
+                  <ci> Tumor_Cells </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Effector_Cell_Activation" reversible="false">
+        <listOfProducts>
+          <speciesReference species="Effector_Cells"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Interleukin_2"/>
+          <modifierSpeciesReference species="Tumor_Cells"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> p1 </ci>
+              <ci> Interleukin_2 </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> g1 </ci>
+                  <ci> Interleukin_2 </ci>
+                </apply>
+                <ci> Effector_Cells </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> Tumor_Cells </ci>
+                <ci> V </ci>
+                <ci> s1 </ci>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Tumor_Removal" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Tumor_Cells"/>
+        </listOfReactants>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Effector_Cells"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> a </ci>
+              <ci> Tumor_Cells </ci>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> g2 </ci>
+                  <ci> V </ci>
+                </apply>
+                <ci> Tumor_Cells </ci>
+              </apply>
+              <ci> Effector_Cells </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Interleukin_2_Activation" reversible="false">
+        <listOfProducts>
+          <speciesReference species="Interleukin_2"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Tumor_Cells"/>
+          <modifierSpeciesReference species="Effector_Cells"/>
+        </listOfModifiers>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> p2 </ci>
+              <apply>
+                <divide/>
+                <ci> V </ci>
+              </apply>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci> Tumor_Cells </ci>
+                  <ci> Effector_Cells </ci>
+                </apply>
+                <apply>
+                  <plus/>
+                  <apply>
+                    <times/>
+                    <ci> g3 </ci>
+                    <ci> V </ci>
+                  </apply>
+                  <ci> Tumor_Cells </ci>
+                </apply>
+              </apply>
+              <ci> s2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Interleukin_2_Deactivation" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Interleukin_2"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> mu3 </ci>
+              <ci> Interleukin_2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="Effector_Cell_Deactivation" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Effector_Cells"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> mu2 </ci>
+              <ci> Effector_Cells </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

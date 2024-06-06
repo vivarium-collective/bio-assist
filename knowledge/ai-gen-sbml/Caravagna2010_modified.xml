@@ -1,0 +1,826 @@
+<ns0:sbml xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:ns0="http://www.sbml.org/sbml/level2/version4" xmlns:ns10="http://www.w3.org/1998/Math/MathML" xmlns:ns4="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:ns5="http://purl.org/dc/terms/" xmlns:ns6="http://biomodels.net/model-qualifiers/" xmlns:ns7="http://biomodels.net/biology-qualifiers/" xmlns:ns8="http://www.copasi.org/static/sbml" xmlns:ns9="http://www.copasi.org/RDF/MiriamTerms#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" level="2" version="4">
+  <ns0:model id="Caravagna2010___Tumour_suppression_by_immune_system" metaid="COPASI0" name="Caravagna2010 - Tumour suppression by immune system">
+    <ns0:notes>
+      <html:body>
+        <html:pre>Tumour suppression by immune system through stochastic oscillations
+GiulioCaravagnaa 
+Albertod&#8217;Onofriob 
+PaoloMilazzoa
+RobertoBarbutia
+https://doi.org/10.1016/j.jtbi.2010.05.013
+
+Abstract
+
+The well-known Kirschner&#8211;Panetta model for tumour&#8211;immune System interplay [Kirschner, D., Panetta, J.C., 1998. Modelling immunotherapy of the tumour&#8211;immune interaction. J. Math. Biol. 37 (3), 235&#8211;252] reproduces a number of features of this essential interaction, but it excludes the possibility of tumour suppression by the immune system in the absence of therapy. Here we present a hybrid&#8211;stochastic version of that model. In this new framework, we show that in reality the model is also able to reproduce the suppression, through stochastic extinction after the first spike of an oscillation.</html:pre>
+      </html:body>
+    </ns0:notes>
+    <ns0:annotation>
+      <rdf:RDF>
+        <rdf:Description rdf:about="#COPASI0">
+	<dc:creator>
+	<rdf:Bag>
+	<rdf:li rdf:parseType="Resource">
+	<ns4:N rdf:parseType="Resource">
+	<ns4:Family>Sharif Shohan</ns4:Family>
+	<ns4:Given>Mohammad Umer</ns4:Given>
+	</ns4:N>
+	<ns4:EMAIL>msharifshohan@ebi.ac.uk</ns4:EMAIL>
+	<ns4:ORG rdf:parseType="Resource">
+	<ns4:Orgname>EMBL-EBI</ns4:Orgname>
+	</ns4:ORG>
+	</rdf:li>
+	</rdf:Bag>
+	</dc:creator>
+	<ns5:created rdf:parseType="Resource">
+	<ns5:W3CDTF>2020-01-20T09:47:17Z</ns5:W3CDTF>
+	</ns5:created>
+	<ns5:modified rdf:parseType="Resource">
+	<ns5:W3CDTF>2020-01-20T10:27:37Z</ns5:W3CDTF>
+	</ns5:modified>
+	<ns6:isDerivedFrom>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/mamo/MAMO_0000046" />
+	<rdf:li rdf:resource="http://identifiers.org/taxonomy/9606" />
+	<rdf:li rdf:resource="http://identifiers.org/biomodels.db/BIOMD0000000732" />
+	</rdf:Bag>
+	</ns6:isDerivedFrom>
+	<ns6:isDescribedBy>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/biomodels.db/BIOMD0000000732" />
+	<rdf:li rdf:resource="http://identifiers.org/pubmed/20580640" />
+	</rdf:Bag>
+	</ns6:isDescribedBy>
+	<ns7:hasTaxon>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/taxonomy/9606" />
+	</rdf:Bag>
+	</ns7:hasTaxon>
+	<ns7:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/mamo/MAMO_0000046" />
+	</rdf:Bag>
+	</ns7:hasProperty>
+	<ns6:is>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/biomodels.db/MODEL2001200001" />
+	<rdf:li rdf:resource="http://identifiers.org/biomodels.db/BIOMD0000000912" />
+	</rdf:Bag>
+	</ns6:is>
+	</rdf:Description>
+	
+	
+      </rdf:RDF>
+      <ns8:COPASI>
+        <rdf:RDF>
+          <rdf:Description rdf:about="#COPASI0">
+            <ns7:hasProperty rdf:resource="urn:miriam:mamo:MAMO_0000046" />
+            <ns7:hasTaxon rdf:resource="urn:miriam:taxonomy:9606" />
+            <ns6:isDerivedFrom rdf:resource="urn:miriam:biomodels.db:BIOMD0000000732" />
+            <ns5:bibliographicCitation>
+              <rdf:Description>
+                <ns5:description>Tumour suppression by immune system</ns5:description>
+                <ns9:isDescribedBy rdf:resource="urn:miriam:pubmed:20580640" />
+              </rdf:Description>
+            </ns5:bibliographicCitation>
+            <ns5:created>
+              <rdf:Description>
+                <ns5:W3CDTF>2020-01-20T09:47:17Z</ns5:W3CDTF>
+              </rdf:Description>
+            </ns5:created>
+            <ns5:creator>
+              <rdf:Description>
+                <ns4:EMAIL>msharifshohan@ebi.ac.uk</ns4:EMAIL>
+                <ns4:N>
+                  <rdf:Description>
+                    <ns4:Family>Sharif Shohan</ns4:Family>
+                    <ns4:Given>Mohammad Umer</ns4:Given>
+                  </rdf:Description>
+                </ns4:N>
+                <ns4:ORG>
+                  <rdf:Description>
+                    <ns4:Orgname>EMBL-EBI</ns4:Orgname>
+                  </rdf:Description>
+                </ns4:ORG>
+              </rdf:Description>
+            </ns5:creator>
+            <ns5:modified>
+              <rdf:Description>
+                <ns5:W3CDTF>2020-01-20T10:27:37</ns5:W3CDTF>
+              </rdf:Description>
+            </ns5:modified>
+          </rdf:Description>
+        </rdf:RDF>
+      </ns8:COPASI>
+    </ns0:annotation>
+      <ns0:listOfFunctionDefinitions>
+      <ns0:functionDefinition id="Function_for_removal_of_the_tumor" metaid="COPASI10" name="Function for removal of the tumor">
+        <ns0:annotation>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI10">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T09:51:45Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+        <ns10:math>        
+          <ns10:lambda>
+            <ns10:bvar>
+              <ns10:ci> a </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> T </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> g2 </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> V </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> E </ns10:ci>
+            </ns10:bvar>
+            <ns10:apply>
+              <ns10:times />
+              <ns10:apply>
+                <ns10:divide />
+                <ns10:apply>
+                  <ns10:times />
+                  <ns10:ci> a </ns10:ci>
+                  <ns10:ci> T </ns10:ci>
+                </ns10:apply>
+                <ns10:apply>
+                  <ns10:plus />
+                  <ns10:apply>
+                    <ns10:times />
+                    <ns10:ci> g2 </ns10:ci>
+                    <ns10:ci> V </ns10:ci>
+                  </ns10:apply>
+                  <ns10:ci> T </ns10:ci>
+                </ns10:apply>
+              </ns10:apply>
+              <ns10:ci> E </ns10:ci>
+            </ns10:apply>
+          </ns10:lambda>
+        </ns10:math>
+            </ns0:functionDefinition>
+      <ns0:functionDefinition id="Function_for_induction_of_tumor" metaid="COPASI11" name="Function for induction of tumor">
+        <ns0:annotation>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI11">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T09:48:55Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+        <ns10:math>        
+          <ns10:lambda>
+            <ns10:bvar>
+              <ns10:ci> r </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> T </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> b </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> V </ns10:ci>
+            </ns10:bvar>
+            <ns10:apply>
+              <ns10:times />
+              <ns10:ci> r </ns10:ci>
+              <ns10:ci> T </ns10:ci>
+              <ns10:apply>
+                <ns10:minus />
+                <ns10:cn> 1 </ns10:cn>
+                <ns10:apply>
+                  <ns10:times />
+                  <ns10:apply>
+                    <ns10:divide />
+                    <ns10:ci> b </ns10:ci>
+                    <ns10:ci> V </ns10:ci>
+                  </ns10:apply>
+                  <ns10:ci> T </ns10:ci>
+                </ns10:apply>
+              </ns10:apply>
+            </ns10:apply>
+          </ns10:lambda>
+        </ns10:math>
+            </ns0:functionDefinition>
+      <ns0:functionDefinition id="Function_for_deactivation_of_interleukin_2" metaid="COPASI12" name="Function for deactivation of interleukin 2">
+        <ns0:annotation>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI12">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T10:12:57Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+        <ns10:math>        
+          <ns10:lambda>
+            <ns10:bvar>
+              <ns10:ci> mu3 </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> I </ns10:ci>
+            </ns10:bvar>
+            <ns10:apply>
+              <ns10:times />
+              <ns10:ci> mu3 </ns10:ci>
+              <ns10:ci> I </ns10:ci>
+            </ns10:apply>
+          </ns10:lambda>
+        </ns10:math>
+            </ns0:functionDefinition>
+      <ns0:functionDefinition id="Function_for_activation_of_interleukin_2" metaid="COPASI13" name="Function for activation of interleukin 2">
+        <ns0:annotation>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI13">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T10:03:21Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+        <ns10:math>        
+          <ns10:lambda>
+            <ns10:bvar>
+              <ns10:ci> p2 </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> V </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> T </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> E </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> g3 </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> s2 </ns10:ci>
+            </ns10:bvar>
+            <ns10:apply>
+              <ns10:plus />
+              <ns10:apply>
+                <ns10:times />
+                <ns10:apply>
+                  <ns10:divide />
+                  <ns10:ci> p2 </ns10:ci>
+                  <ns10:ci> V </ns10:ci>
+                </ns10:apply>
+                <ns10:apply>
+                  <ns10:divide />
+                  <ns10:apply>
+                    <ns10:times />
+                    <ns10:ci> T </ns10:ci>
+                    <ns10:ci> E </ns10:ci>
+                  </ns10:apply>
+                  <ns10:apply>
+                    <ns10:plus />
+                    <ns10:apply>
+                      <ns10:times />
+                      <ns10:ci> g3 </ns10:ci>
+                      <ns10:ci> V </ns10:ci>
+                    </ns10:apply>
+                    <ns10:ci> T </ns10:ci>
+                  </ns10:apply>
+                </ns10:apply>
+              </ns10:apply>
+              <ns10:ci> s2 </ns10:ci>
+            </ns10:apply>
+          </ns10:lambda>
+        </ns10:math>
+            </ns0:functionDefinition>
+      <ns0:functionDefinition id="Function_for_activation_and_transfer_of_effector_cells_to_the_tumor_site" metaid="COPASI14" name="Function for activation and transfer of effector cells to the tumor site">
+        <ns0:annotation>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI14">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T09:53:21Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+        <ns10:math>        
+          <ns10:lambda>
+            <ns10:bvar>
+              <ns10:ci> p1 </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> I </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> g1 </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> E </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> c </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> T </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> V </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> s1 </ns10:ci>
+            </ns10:bvar>
+            <ns10:apply>
+              <ns10:plus />
+              <ns10:apply>
+                <ns10:times />
+                <ns10:apply>
+                  <ns10:divide />
+                  <ns10:apply>
+                    <ns10:times />
+                    <ns10:ci> p1 </ns10:ci>
+                    <ns10:ci> I </ns10:ci>
+                  </ns10:apply>
+                  <ns10:apply>
+                    <ns10:times />
+                    <ns10:ci> g1 </ns10:ci>
+                    <ns10:ci> I </ns10:ci>
+                  </ns10:apply>
+                </ns10:apply>
+                <ns10:ci> E </ns10:ci>
+              </ns10:apply>
+              <ns10:apply>
+                <ns10:times />
+                <ns10:ci> c </ns10:ci>
+                <ns10:ci> T </ns10:ci>
+              </ns10:apply>
+              <ns10:apply>
+                <ns10:times />
+                <ns10:ci> V </ns10:ci>
+                <ns10:ci> s1 </ns10:ci>
+              </ns10:apply>
+            </ns10:apply>
+          </ns10:lambda>
+        </ns10:math>
+            </ns0:functionDefinition>
+      <ns0:functionDefinition id="Function_for_deactivation_and_removal_of_effector_cells_from_the_site_of_tumor" metaid="COPASI15" name="Function for deactivation and removal of effector cells from the site of tumor">
+        <ns0:annotation>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI15">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T10:02:10Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+        <ns10:math>        
+          <ns10:lambda>
+            <ns10:bvar>
+              <ns10:ci> mu2 </ns10:ci>
+            </ns10:bvar>
+            <ns10:bvar>
+              <ns10:ci> E </ns10:ci>
+            </ns10:bvar>
+            <ns10:apply>
+              <ns10:times />
+              <ns10:ci> mu2 </ns10:ci>
+              <ns10:ci> E </ns10:ci>
+            </ns10:apply>
+          </ns10:lambda>
+        </ns10:math>
+            </ns0:functionDefinition>
+    </ns0:listOfFunctionDefinitions>
+    <ns0:listOfUnitDefinitions>
+      <ns0:unitDefinition id="volume" name="volume">
+        <ns0:listOfUnits>
+          <ns0:unit exponent="1" kind="litre" multiplier="1" scale="-3" />
+        </ns0:listOfUnits>
+      </ns0:unitDefinition>
+      <ns0:unitDefinition id="time" name="time">
+        <ns0:listOfUnits>
+          <ns0:unit exponent="1" kind="second" multiplier="86400" scale="0" />
+        </ns0:listOfUnits>
+      </ns0:unitDefinition>
+      <ns0:unitDefinition id="substance" name="substance">
+        <ns0:listOfUnits>
+          <ns0:unit exponent="1" kind="mole" multiplier="1" scale="-3" />
+        </ns0:listOfUnits>
+      </ns0:unitDefinition>
+    </ns0:listOfUnitDefinitions>
+    <ns0:listOfCompartments>
+      <ns0:compartment constant="true" id="compartment" name="compartment" size="1" spatialDimensions="3" />
+    </ns0:listOfCompartments>
+    <ns0:listOfSpecies>
+      <ns0:species boundaryCondition="false" compartment="compartment" constant="false" id="T" initialConcentration="1" metaid="COPASI1" name="T">
+        <ns0:annotation>
+          <rdf:RDF>
+            <rdf:Description rdf:about="#COPASI1">
+	<ns7:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/efo/0000616" />
+	</rdf:Bag>
+	</ns7:isVersionOf>
+	</rdf:Description>
+	
+	
+          </rdf:RDF>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI1">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T10:28:15Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+                <ns9:isVersionOf rdf:resource="urn:miriam:efo:0000616" />
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+            </ns0:species>
+      <ns0:species boundaryCondition="false" compartment="compartment" constant="false" id="E" initialConcentration="1" metaid="COPASI2" name="E">
+        <ns0:annotation>
+          <rdf:RDF>
+            <rdf:Description rdf:about="#COPASI2">
+	<ns7:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/ncit/C132890" />
+	</rdf:Bag>
+	</ns7:hasProperty>
+	</rdf:Description>
+	
+	
+          </rdf:RDF>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI2">
+                <ns7:hasProperty rdf:resource="urn:miriam:ncit:C132890" />
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T10:29:44Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+            </ns0:species>
+      <ns0:species boundaryCondition="false" compartment="compartment" constant="false" id="I" initialConcentration="1" metaid="COPASI3" name="I">
+        <ns0:annotation>
+          <rdf:RDF>
+            <rdf:Description rdf:about="#COPASI3">
+	<ns7:hasProperty>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/uniprot/P60568" />
+	</rdf:Bag>
+	</ns7:hasProperty>
+	</rdf:Description>
+	
+	
+          </rdf:RDF>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI3">
+                <ns7:hasProperty rdf:resource="urn:miriam:uniprot:P60568" />
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T10:28:57Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+            </ns0:species>
+    </ns0:listOfSpecies>
+    <ns0:listOfParameters>
+      <ns0:parameter constant="true" id="r2" name="r2" value="0.18" />
+      <ns0:parameter constant="true" id="b" name="b" value="1E-9" />
+      <ns0:parameter constant="true" id="a" name="a" value="1" />
+      <ns0:parameter constant="true" id="g2" name="g2" value="100000" />
+      <ns0:parameter constant="true" id="p1" name="p1" value="0.1245" />
+      <ns0:parameter constant="true" id="g1" name="g1" value="20000000" />
+      <ns0:parameter constant="true" id="mu2" name="mu2" value="0.03" />
+      <ns0:parameter constant="true" id="c" name="c" value="0.02" />
+      <ns0:parameter constant="true" id="p2" name="p2" value="5" />
+      <ns0:parameter constant="true" id="g3" name="g3" value="1000" />
+      <ns0:parameter constant="true" id="mu3" name="mu3" value="10" />
+      <ns0:parameter constant="true" id="V" name="V" value="3.2" />
+      <ns0:parameter constant="true" id="s1" name="s1" value="0" />
+      <ns0:parameter constant="true" id="s2" name="s2" value="0" />
+    </ns0:listOfParameters>
+    <ns0:listOfReactions>
+      <ns0:reaction id="Induction_of_tumor" metaid="COPASI4" name="Induction of tumor" reversible="false">
+        <ns0:annotation>
+          <rdf:RDF>
+            <rdf:Description rdf:about="#COPASI4">
+	<ns7:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/go/GO:0002355" />
+	</rdf:Bag>
+	</ns7:isVersionOf>
+	</rdf:Description>
+	
+	
+          </rdf:RDF>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI4">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T09:47:50Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+                <ns9:isVersionOf rdf:resource="urn:miriam:go:GO:0002355" />
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+              <ns0:listOfProducts>
+          <ns0:speciesReference species="T" stoichiometry="1" />
+        </ns0:listOfProducts>
+        <ns0:kineticLaw>
+          <ns10:math>          
+            <ns10:apply>
+              <ns10:times />
+              <ns10:ci> compartment </ns10:ci>
+              <ns10:apply>
+                <ns10:ci> Function_for_induction_of_tumor </ns10:ci>
+                <ns10:ci> r2 </ns10:ci>
+                <ns10:ci> T </ns10:ci>
+                <ns10:ci> b </ns10:ci>
+                <ns10:ci> V </ns10:ci>
+              </ns10:apply>
+            </ns10:apply>
+          </ns10:math>
+                </ns0:kineticLaw>
+      </ns0:reaction>
+      <ns0:reaction id="Removal_of_tumor_from_the_system_by_the_action_of_immune_response" metaid="COPASI5" name="Removal of tumor from the system by the action of immune response" reversible="false">
+        <ns0:annotation>
+          <rdf:RDF>
+            <rdf:Description rdf:about="#COPASI5">
+	<ns7:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/go/" />
+	</rdf:Bag>
+	</ns7:isVersionOf>
+	</rdf:Description>
+	
+	
+          </rdf:RDF>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI5">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T09:49:36Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+                <ns9:isVersionOf rdf:resource="urn:miriam:go:" />
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+              <ns0:listOfReactants>
+          <ns0:speciesReference species="T" stoichiometry="1" />
+        </ns0:listOfReactants>
+        <ns0:listOfModifiers>
+          <ns0:modifierSpeciesReference species="E" />
+        </ns0:listOfModifiers>
+        <ns0:kineticLaw>
+          <ns10:math>          
+            <ns10:apply>
+              <ns10:times />
+              <ns10:ci> compartment </ns10:ci>
+              <ns10:apply>
+                <ns10:ci> Function_for_removal_of_the_tumor </ns10:ci>
+                <ns10:ci> a </ns10:ci>
+                <ns10:ci> T </ns10:ci>
+                <ns10:ci> g2 </ns10:ci>
+                <ns10:ci> V </ns10:ci>
+                <ns10:ci> E </ns10:ci>
+              </ns10:apply>
+            </ns10:apply>
+          </ns10:math>
+                </ns0:kineticLaw>
+      </ns0:reaction>
+      <ns0:reaction id="Activation_and_transfer_of_effector_cells_to_the_action_site" metaid="COPASI6" name="Activation and transfer of effector cells to the action site" reversible="false">
+        <ns0:annotation>
+          <rdf:RDF>
+            <rdf:Description rdf:about="#COPASI6">
+	<ns7:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/go/GO:0002418" />
+	</rdf:Bag>
+	</ns7:isVersionOf>
+	</rdf:Description>
+	
+	
+          </rdf:RDF>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI6">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T09:52:50Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+                <ns9:isVersionOf rdf:resource="urn:miriam:go:GO:0002418" />
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+              <ns0:listOfProducts>
+          <ns0:speciesReference species="E" stoichiometry="1" />
+        </ns0:listOfProducts>
+        <ns0:listOfModifiers>
+          <ns0:modifierSpeciesReference species="I" />
+          <ns0:modifierSpeciesReference species="T" />
+        </ns0:listOfModifiers>
+        <ns0:kineticLaw>
+          <ns10:math>          
+            <ns10:apply>
+              <ns10:times />
+              <ns10:ci> compartment </ns10:ci>
+              <ns10:apply>
+                <ns10:ci> Function_for_activation_and_transfer_of_effector_cells_to_the_tumor_site </ns10:ci>
+                <ns10:ci> p1 </ns10:ci>
+                <ns10:ci> I </ns10:ci>
+                <ns10:ci> g1 </ns10:ci>
+                <ns10:ci> E </ns10:ci>
+                <ns10:ci> c </ns10:ci>
+                <ns10:ci> T </ns10:ci>
+                <ns10:ci> V </ns10:ci>
+                <ns10:ci> s1 </ns10:ci>
+              </ns10:apply>
+            </ns10:apply>
+          </ns10:math>
+                </ns0:kineticLaw>
+      </ns0:reaction>
+      <ns0:reaction id="Deactivation_and_removal_of_effector_cells_from_the_site_of_tumor" metaid="COPASI7" name="Deactivation and removal of effector cells from the site of tumor" reversible="false">
+        <ns0:annotation>
+          <rdf:RDF>
+            <rdf:Description rdf:about="#COPASI7">
+	<ns7:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/go/GO:0002837" />
+	</rdf:Bag>
+	</ns7:isVersionOf>
+	</rdf:Description>
+	
+	
+          </rdf:RDF>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI7">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T09:54:31Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+                <ns9:isVersionOf rdf:resource="urn:miriam:go:GO:0002837" />
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+              <ns0:listOfReactants>
+          <ns0:speciesReference species="E" stoichiometry="1" />
+        </ns0:listOfReactants>
+        <ns0:kineticLaw>
+          <ns10:math>          
+            <ns10:apply>
+              <ns10:times />
+              <ns10:ci> compartment </ns10:ci>
+              <ns10:apply>
+                <ns10:ci> Function_for_deactivation_and_removal_of_effector_cells_from_the_site_of_tumor </ns10:ci>
+                <ns10:ci> mu2 </ns10:ci>
+                <ns10:ci> E </ns10:ci>
+              </ns10:apply>
+            </ns10:apply>
+          </ns10:math>
+                </ns0:kineticLaw>
+      </ns0:reaction>
+      <ns0:reaction id="Activation_of_interleukin_2" metaid="COPASI8" name="Activation of interleukin 2" reversible="false">
+        <ns0:annotation>
+          <rdf:RDF>
+            <rdf:Description rdf:about="#COPASI8">
+	<ns7:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/go/GO:0070970" />
+	</rdf:Bag>
+	</ns7:isVersionOf>
+	</rdf:Description>
+	
+	
+          </rdf:RDF>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI8">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T10:02:47Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+                <ns9:isVersionOf rdf:resource="urn:miriam:go:GO:0070970" />
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+              <ns0:listOfProducts>
+          <ns0:speciesReference species="I" stoichiometry="1" />
+        </ns0:listOfProducts>
+        <ns0:listOfModifiers>
+          <ns0:modifierSpeciesReference species="T" />
+          <ns0:modifierSpeciesReference species="E" />
+        </ns0:listOfModifiers>
+        <ns0:kineticLaw>
+          <ns10:math>          
+            <ns10:apply>
+              <ns10:times />
+              <ns10:ci> compartment </ns10:ci>
+              <ns10:apply>
+                <ns10:ci> Function_for_activation_of_interleukin_2 </ns10:ci>
+                <ns10:ci> p2 </ns10:ci>
+                <ns10:ci> V </ns10:ci>
+                <ns10:ci> T </ns10:ci>
+                <ns10:ci> E </ns10:ci>
+                <ns10:ci> g3 </ns10:ci>
+                <ns10:ci> s2 </ns10:ci>
+              </ns10:apply>
+            </ns10:apply>
+          </ns10:math>
+                </ns0:kineticLaw>
+      </ns0:reaction>
+      <ns0:reaction id="Deactivation_of_interleukin2" metaid="COPASI9" name="Deactivation of interleukin2" reversible="false">
+        <ns0:annotation>
+          <rdf:RDF>
+            <rdf:Description rdf:about="#COPASI9">
+	<ns7:isVersionOf>
+	<rdf:Bag>
+	<rdf:li rdf:resource="http://identifiers.org/go/GO:0070970" />
+	</rdf:Bag>
+	</ns7:isVersionOf>
+	</rdf:Description>
+	
+	
+          </rdf:RDF>
+          <ns8:COPASI>
+            <rdf:RDF>
+              <rdf:Description rdf:about="#COPASI9">
+                <ns5:created>
+                  <rdf:Description>
+                    <ns5:W3CDTF>2020-01-20T10:12:39Z</ns5:W3CDTF>
+                  </rdf:Description>
+                </ns5:created>
+                <ns9:isVersionOf rdf:resource="urn:miriam:go:GO:0070970" />
+              </rdf:Description>
+            </rdf:RDF>
+          </ns8:COPASI>
+        </ns0:annotation>
+              <ns0:listOfReactants>
+          <ns0:speciesReference species="I" stoichiometry="1" />
+        </ns0:listOfReactants>
+        <ns0:kineticLaw>
+          <ns10:math>          
+            <ns10:apply>
+              <ns10:times />
+              <ns10:ci> compartment </ns10:ci>
+              <ns10:apply>
+                <ns10:ci> Function_for_deactivation_of_interleukin_2 </ns10:ci>
+                <ns10:ci> mu3 </ns10:ci>
+                <ns10:ci> I </ns10:ci>
+              </ns10:apply>
+            </ns10:apply>
+          </ns10:math>
+                </ns0:kineticLaw>
+      </ns0:reaction>
+    </ns0:listOfReactions>
+  <species id="Tumor_Cells" name="Tumor Cells" initialConcentration="1" compartment="compartment" boundaryCondition="false" constant="false" /><species id="Effector_Cells" name="Effector Cells" initialConcentration="1" compartment="compartment" boundaryCondition="false" constant="false" /><species id="Interleukin_2" name="Interleukin 2" initialConcentration="1" compartment="compartment" boundaryCondition="false" constant="false" /><reaction id="Tumor_Growth" name="Tumor Growth" reversible="false"><listOfReactants><speciesReference species="Tumor_Cells" stoichiometry="1" /></listOfReactants><listOfProducts><speciesReference species="Tumor_Cells" stoichiometry="1" /></listOfProducts><listOfModifiers /><kineticLaw><math xmlns="http://www.w3.org/1998/Math/MathML">&lt;apply&gt;&lt;times/&gt;&lt;ci&gt;k_growth&lt;/ci&gt;&lt;ci&gt;Tumor_Cells&lt;/ci&gt;&lt;/apply&gt;</math></kineticLaw></reaction><reaction id="Effector_Cell_Response" name="Effector Cell Response" reversible="false"><listOfReactants><speciesReference species="Tumor_Cells" stoichiometry="1" /></listOfReactants><listOfProducts><speciesReference species="Effector_Cells" stoichiometry="1" /></listOfProducts><listOfModifiers><modifierSpeciesReference species="Interleukin_2" /></listOfModifiers><kineticLaw><math xmlns="http://www.w3.org/1998/Math/MathML">&lt;apply&gt;&lt;times/&gt;&lt;ci&gt;k_response&lt;/ci&gt;&lt;ci&gt;Interleukin_2&lt;/ci&gt;&lt;ci&gt;Tumor_Cells&lt;/ci&gt;&lt;/apply&gt;</math></kineticLaw></reaction><reaction id="Interleukin_2_Deactivation" name="Interleukin 2 Deactivation" reversible="false"><listOfReactants><speciesReference species="Interleukin_2" stoichiometry="1" /></listOfReactants><listOfProducts /><listOfModifiers /><kineticLaw><math xmlns="http://www.w3.org/1998/Math/MathML">&lt;apply&gt;&lt;times/&gt;&lt;ci&gt;k_deactivation&lt;/ci&gt;&lt;ci&gt;Interleukin_2&lt;/ci&gt;&lt;/apply&gt;</math></kineticLaw></reaction></ns0:model>
+</ns0:sbml>

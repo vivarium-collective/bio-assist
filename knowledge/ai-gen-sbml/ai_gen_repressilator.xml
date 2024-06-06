@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model id="RepressilatorModel" name="Synthetic Oscillatory Network of Transcriptional Regulators">
+    <listOfCompartments>
+      <compartment id="cell" size="1" spatialDimensions="3" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="TetR" compartment="cell" initialConcentration="0" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+      <species id="LacI" compartment="cell" initialConcentration="0" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+      <species id="cI" compartment="cell" initialConcentration="0" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+      <species id="mRNA_TetR" compartment="cell" initialConcentration="0" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+      <species id="mRNA_LacI" compartment="cell" initialConcentration="0" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+      <species id="mRNA_cI" compartment="cell" initialConcentration="0" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="alpha" value="50" constant="true"/>
+      <parameter id="alpha0" value="0.01" constant="true"/>
+      <parameter id="beta" value="5" constant="true"/>
+      <parameter id="n" value="2" constant="true"/>
+      <parameter id="Km" value="40" constant="true"/>
+      <parameter id="gamma_m" value="0.1" constant="true"/>
+      <parameter id="gamma_p" value="0.1" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <!-- Transcription of TetR -->
+      <reaction id="transcription_TetR" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_TetR" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <plus/>
+                <ci> alpha </ci>
+                <apply>
+                  <divide/>
+                  <ci> alpha0 </ci>
+                  <apply>
+                    <power/>
+                    <ci> LacI </ci>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <cn> 1 </cn>
+                <apply>
+                  <power/>
+                  <ci> LacI </ci>
+                  <ci> n </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Transcription of LacI -->
+      <reaction id="transcription_LacI" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_LacI" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <plus/>
+                <ci> alpha </ci>
+                <apply>
+                  <divide/>
+                  <ci> alpha0 </ci>
+                  <apply>
+                    <power/>
+                    <ci> cI </ci>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <cn> 1 </cn>
+                <apply>
+                  <power/>
+                  <ci> cI </ci>
+                  <ci> n </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Transcription of cI -->
+      <reaction id="transcription_cI" reversible="false">
+        <listOfProducts>
+          <speciesReference species="mRNA_cI" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <plus/>
+                <ci> alpha </ci>
+                <apply>
+                  <divide/>
+                  <ci> alpha0 </ci>
+                  <apply>
+                    <power/>
+                    <ci> TetR </ci>
+                    <ci> n </ci>
+                  </apply>
+                </apply>
+              </apply>
+              <apply>
+                <plus/>
+                <cn> 1 </cn>
+                <apply>
+                  <power/>
+                  <ci> TetR </ci>
+                  <ci> n </ci>
+                </apply>
+              </apply>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Translation of mRNA_TetR to TetR -->
+      <reaction id="translation_TetR" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_TetR" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="TetR" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> beta </ci>
+              <ci> mRNA_TetR </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Translation of mRNA_LacI to LacI -->
+      <reaction id="translation_LacI" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_LacI" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="LacI" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> beta </ci>
+              <ci> mRNA_LacI </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Translation of mRNA_cI to cI -->
+      <reaction id="translation_cI" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_cI" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="cI" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> beta </ci>
+              <ci> mRNA_cI </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Degradation of mRNA_TetR -->
+      <reaction id="degradation_mRNA_TetR" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_TetR" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> gamma_m </ci>
+              <ci> mRNA_TetR </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Degradation of mRNA_LacI -->
+      <reaction id="degradation_mRNA_LacI" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_LacI" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> gamma_m </ci>
+              <ci> mRNA_LacI </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Degradation of mRNA_cI -->
+      <reaction id="degradation_mRNA_cI" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mRNA_cI" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> gamma_m </ci>
+              <ci> mRNA_cI </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+        <!-- Degradation of TetR -->
+      <reaction id="degradation_TetR" reversible="false">
+        <listOfReactants>
+          <speciesReference species="TetR" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> gamma_p </ci>
+              <ci> TetR </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Degradation of LacI -->
+      <reaction id="degradation_LacI" reversible="false">
+        <listOfReactants>
+          <speciesReference species="LacI" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> gamma_p </ci>
+              <ci> LacI </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Degradation of cI -->
+      <reaction id="degradation_cI" reversible="false">
+        <listOfReactants>
+          <speciesReference species="cI" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> gamma_p </ci>
+              <ci> cI </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
