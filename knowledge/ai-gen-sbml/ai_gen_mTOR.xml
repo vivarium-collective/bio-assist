@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version2/core" level="3" version="2">
+  <model id="mTOR_Signaling_Model" name="Dynamic mTOR Signaling Network">
+    <listOfCompartments>
+      <compartment id="cell" size="1" spatialDimensions="3" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="mTORC1" compartment="cell" initialConcentration="1" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+      <species id="mTORC2" compartment="cell" initialConcentration="1" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+      <species id="DEPTOR" compartment="cell" initialConcentration="1" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+      <species id="Akt" compartment="cell" initialConcentration="1" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+      <species id="TSC1_2" compartment="cell" initialConcentration="1" boundaryCondition="false" hasOnlySubstanceUnits="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="k1" value="0.5" constant="true"/>
+      <parameter id="k2" value="0.5" constant="true"/>
+      <parameter id="k3" value="0.5" constant="true"/>
+      <parameter id="k4" value="0.5" constant="true"/>
+      <parameter id="k5" value="0.5" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <!-- DEPTOR inhibits mTORC1 -->
+      <reaction id="inhibition_mTORC1_by_DEPTOR" reversible="false">
+        <listOfReactants>
+          <speciesReference species="DEPTOR" stoichiometry="1"/>
+          <speciesReference species="mTORC1" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DEPTOR_mTORC1_complex" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k1 </ci>
+              <ci> DEPTOR </ci>
+              <ci> mTORC1 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- DEPTOR inhibits mTORC2 -->
+      <reaction id="inhibition_mTORC2_by_DEPTOR" reversible="false">
+        <listOfReactants>
+          <speciesReference species="DEPTOR" stoichiometry="1"/>
+          <speciesReference species="mTORC2" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="DEPTOR_mTORC2_complex" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k2 </ci>
+              <ci> DEPTOR </ci>
+              <ci> mTORC2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- mTORC1 promotes degradation of DEPTOR -->
+      <reaction id="degradation_DEPTOR_by_mTORC1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mTORC1" stoichiometry="1"/>
+          <speciesReference species="DEPTOR" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k3 </ci>
+              <ci> mTORC1 </ci>
+              <ci> DEPTOR </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- Akt activates mTORC1 by inhibiting TSC1/2 -->
+      <reaction id="activation_mTORC1_by_Akt" reversible="false">
+        <listOfReactants>
+          <speciesReference species="Akt" stoichiometry="1"/>
+          <speciesReference species="TSC1_2" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k4 </ci>
+              <ci> Akt </ci>
+              <ci> TSC1_2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <!-- mTORC1 phosphorylates TSC1/2 -->
+      <reaction id="phosphorylation_TSC1_2_by_mTORC1" reversible="false">
+        <listOfReactants>
+          <speciesReference species="mTORC1" stoichiometry="1"/>
+          <speciesReference species="TSC1_2" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k5 </ci>
+              <ci> mTORC1 </ci>
+              <ci> TSC1_2 </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
